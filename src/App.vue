@@ -1,28 +1,86 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <div class="left">
+            <Aside :list="asideList"></Aside>
+        </div>
+        <div class="right"></div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Aside from './components/Aside';
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: 'App',
+    data() {
+        return {
+            asideList: [
+                {
+                    title: '客户对账管理',
+                    path: '',
+                    index: '1',
+                    children: [
+                        {
+                            title: '附加费用录入',
+                            path: '',
+                            index: '1-1',
+                        },
+                        {
+                            title: '客户运费核算',
+                            path: '',
+                            index: '1-2',
+                        },
+                    ],
+                },
+                {
+                    title: '内部对账管理',
+                    path: '',
+                    index: '2',
+                    children: [
+                        {
+                            title: '附加费用录入',
+                            path: '',
+                            index: '2-1',
+                        },
+                        {
+                            title: '客户运费核算',
+                            path: '',
+                            index: '2-2',
+                        },
+                    ],
+                },
+            ],
+        };
+    },
+    components: {
+        Aside,
+    },
+};
 </script>
 
-<style>
+<style lang="less">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    .left {
+        width: 188px;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+body {
+    background-color: #fff;
 }
 </style>
