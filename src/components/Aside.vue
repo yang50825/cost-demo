@@ -8,7 +8,6 @@
             background-color="#001529"
             text-color="#fff"
             active-text-color="#ffd04b"
-            321
             :unique-opened="true"
         >
             <el-submenu v-for="(obj, index) in list" :key="index" :index="obj.index">
@@ -17,7 +16,9 @@
                     <span>{{ obj.title }}</span>
                 </template>
                 <el-menu-item-group v-for="(item, index) in obj.children" :key="index">
-                    <el-menu-item :index="item.index">{{ obj.title }}</el-menu-item>
+                    <el-menu-item :index="item.index">
+                        <router-link :to="item.path">{{ item.title }}</router-link>
+                    </el-menu-item>
                 </el-menu-item-group>
             </el-submenu>
         </el-menu>
@@ -29,10 +30,10 @@ export default {
     name: 'Aside',
     methods: {
         handleOpen(key, keyPath) {
-            console.log(key, keyPath);
+            // console.log(key, keyPath);
         },
         handleClose(key, keyPath) {
-            console.log(key, keyPath);
+            // console.log(key, keyPath);
         },
     },
     props: {
@@ -56,6 +57,15 @@ export default {
             .el-menu-item-group {
                 .el-menu-item {
                     min-width: 185px !important;
+                    padding: 0 !important;
+                    text-align: center;
+                    a {
+                        display: block;
+                        color: aliceblue;
+                    }
+                    & a.router-link-exact-active {
+                        background-color: #0099ff !important;
+                    }
                 }
                 & .el-menu-item:hover {
                     background-color: #0099ff !important;

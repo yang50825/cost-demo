@@ -3,7 +3,9 @@
         <div class="left">
             <Aside :list="asideList"></Aside>
         </div>
-        <div class="right"></div>
+        <div class="right">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -21,12 +23,12 @@ export default {
                     children: [
                         {
                             title: '附加费用录入',
-                            path: '',
+                            path: '/addition',
                             index: '1-1',
                         },
                         {
-                            title: '客户运费核算',
-                            path: '',
+                            title: '客户运费核对',
+                            path: '/user',
                             index: '1-2',
                         },
                     ],
@@ -37,13 +39,13 @@ export default {
                     index: '2',
                     children: [
                         {
-                            title: '附加费用录入',
-                            path: '',
+                            title: '内部费用录入',
+                            path: '/user',
                             index: '2-1',
                         },
                         {
-                            title: '客户运费核算',
-                            path: '',
+                            title: '内部运费核对',
+                            path: '/user',
                             index: '2-2',
                         },
                     ],
@@ -64,11 +66,18 @@ export default {
     .left {
         width: 188px;
     }
+    .right {
+        flex: 1;
+    }
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.wrapper {
+    width: 1252px;
 }
 
 li {
