@@ -8,6 +8,7 @@
             background-color="#001529"
             text-color="#fff"
             active-text-color="#ffd04b"
+            321
             :unique-opened="true"
         >
             <el-submenu v-for="(obj, index) in list" :key="index" :index="obj.index">
